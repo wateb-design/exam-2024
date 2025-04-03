@@ -2,7 +2,7 @@ import streamlit as st
 import random
 
 # Simuler une base de données d’utilisateurs (nom d'utilisateur : mot de passe)
-users = {"eleve1": "pass123", "eleve2": "bac2025"}
+users = {"eleve1": "pass123", "eleve2": "bac2025", "Baccalaureat": "Bacc2024"}
 
 # Suivi des scores
 def get_score():
@@ -38,8 +38,8 @@ qcm_data = {
 # Authentification
 def login():
     st.title("Connexion")
-    username = st.text_input("Nom d'utilisateur")
-    password = st.text_input("Mot de passe", type="password")
+    username = st.text_input("Nom d'utilisateur", value="Baccalaureat")
+    password = st.text_input("Mot de passe", type="password", value="Bacc2024")
     if st.button("Se connecter"):
         if username in users and users[username] == password:
             st.session_state["authenticated"] = True
@@ -90,4 +90,3 @@ else:
                 st.write(f"✅ Réponse correcte : {q['answer']}")
                 st.write(f"📝 Votre réponse : {choice}")
                 st.write("---")
-
